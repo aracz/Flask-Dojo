@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>statistics</title>
+</head>
+<body>
+	{% for item in query %}
+		<p>{{ item.type }}</p>
+	{% endfor %}
+
+	<a href="{{ url_for('counter') }}">back to main menu</a>
+</body>
+</html>
