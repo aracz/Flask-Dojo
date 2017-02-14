@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, render_template, url_for
-import Models
+import models
 
 app = Flask(__name__)
 
@@ -9,6 +9,11 @@ def counter():
         Request.create(type= 'get')
     elif request.method == 'POST':
         Request.create(type= 'post')
+
+@app.route('/statistics', methods=['GET', 'POST'])
+def statistics:
+    query = Request.select()
+    return
 
 
 @app.route('/json-generator')
