@@ -21,7 +21,12 @@ def statistics():
     return render_template("stats.html", query=query)
 
 
-#@app.route('/json-generator')
+@app.route('/json-generator', methods = ["GET", "POST"])
+def json_generator():
+	params = request.args.items()
+	for item in params:
+		print(item)
+	return redirect(url_for('counter'))
 
 
 
