@@ -4,15 +4,18 @@ from models import *
 app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
+def homepage():
+    return render_template('index.html')
+
 @app.route('/request-counter', methods = ['GET', 'POST'])
 def counter():
     if request.method == 'GET':
         Request.create(type= 'get')
-        return render_template("index.html")
+        return redirect(url_for('homepage'))
 
     elif request.method == 'POST':
         Request.create(type= 'post')
-        return render_template("index.html")
+        return redirect(url_for('homepage'))
 
 
 @app.route('/statistics', methods=['GET', 'POST'])
